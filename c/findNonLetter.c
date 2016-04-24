@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
  * To compile: 
- * gcc findFirstNonLetter.c -o findFirstNonLetter
+ * gcc findNonLetter.c -o findNonLetter
  *
  * To run:
  * ./findFirstNonLetter string
@@ -18,8 +18,10 @@
 int findFirstNonLetter(char* arrayInput) {
 	// Task 1: Fill in the code here
     int n = sizeof(arrayInput) / sizeof(arrayInput[0]);
-    for (int index = 0; index < sizeof(n); index++){
-        if(!(('A' <= arrayInput[index]  && arrayInput[index] <= 'Z')  ||  ('a' <= arrayInput[index]  && arrayInput[index] <= 'z')))
+    // For-loop sweep through each character of the string comparing against A-Z and a-z
+    // When character not each loop breaks and returns index of the first non-letter 
+    for (int index = 0; index < n; index++){
+        if(!(('A' <= arrayInput[index] && arrayInput[index] <= 'Z')  ||  ('a' <= arrayInput[index] && arrayInput[index] <= 'z')))
              return index;
     }
 	return -1;
@@ -42,7 +44,7 @@ int main( int argc, char** argv) {
 	
 	// Task 2: Print the index found and the actual non-letter character at that index
     printf("Index of first non-letter: %d\n", indexOfFirstNonLetter);
-    printf("First non-letter character: %c\n", argv[1][indexOfFirstNonLetter]);
+    printf("First non-letter: %c\n", argv[1][indexOfFirstNonLetter]);
 
 	return 0;
 }
